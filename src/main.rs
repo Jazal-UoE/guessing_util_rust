@@ -17,6 +17,11 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read the line");
 
+        if guess.trim() == "exit" {
+            print!("exiting software");
+            break;
+        }
+
         let guess: u32 = guess.trim().parse().expect("Please type a number!");
         println!("You guessed {} ", guess);
         match guess.cmp(&secret_number) {
